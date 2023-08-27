@@ -126,7 +126,7 @@ void loop() {
       lcd16x2.print(data);
     }
 
-    if ((data == "led red")) {
+    if ((data == "LED red")) {
       digitalWrite(6, true);
 
       // Display lcd
@@ -136,7 +136,7 @@ void loop() {
       lcd16x2.print(data);
     }
 
-    if ((data == "led blue")) {
+    if ((data == "LED blue")) {
       digitalWrite(5, true);
 
       // Display lcd
@@ -146,7 +146,7 @@ void loop() {
       lcd16x2.print(data);
     }
 
-    if ((data == "led green")) {
+    if ((data == "LED green")) {
       digitalWrite(7, true);
 
       // Display lcd
@@ -156,7 +156,7 @@ void loop() {
       lcd16x2.print(data);
     }
 
-    if ((data == "led off")) {
+    if ((data == "LED off")) {
       digitalWrite(7, false);
       digitalWrite(5, false);
       digitalWrite(6, false);
