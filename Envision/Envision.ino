@@ -13,14 +13,19 @@ void setup() {
   // Set the baud rate for the Bluetooth serial connection.
   Serial.begin(9600);
   pinMode(9, OUTPUT);
+  pinMode(5, OUTPUT);
+  pinMode(6, OUTPUT);
   pinMode(7, OUTPUT);
+  pinMode(10, OUTPUT);
 
   lcd16x2.begin(16, 2, 1);
   lcd16x2.backlight();
 
 
-  lcd16x2.print("Envision APP");
-  Serial.print("Envision APP\n");
+  lcd16x2.print("Envision - HfA");
+  lcd16x2.setCursor(1 - 1, 2 - 1);
+  lcd16x2.print("V.0.1.2 BETA");
+  Serial.print("Envision IDE\n");
   tone(9, 1760, 500);
   delay(500);
   tone(9, 1760, 500);
@@ -29,6 +34,7 @@ void setup() {
 
 // Loop function runs repeatedly forever.
 void loop() {
+  digitalWrite(10, true);
   // Check if there is any data available from the Bluetooth serial connection.
   if (Serial.available()) {
     // Read the data from the Bluetooth serial connection.
@@ -54,7 +60,29 @@ void loop() {
       lcd16x2.print("disconnected");
     }
 
-    if ((data == "sound play")) {
+    if ((data == "tone A2")) {
+      tone(9, 110, 1000);
+      delay(1000);
+
+      // Display lcd
+      lcd16x2.clear();
+      lcd16x2.print("Last command :");
+      lcd16x2.setCursor(1 - 1, 2 - 1);
+      lcd16x2.print(data);
+    }
+
+    if ((data == "tone A3")) {
+      tone(9, 220, 1000);
+      delay(1000);
+
+      // Display lcd
+      lcd16x2.clear();
+      lcd16x2.print("Last command :");
+      lcd16x2.setCursor(1 - 1, 2 - 1);
+      lcd16x2.print(data);
+    }
+
+    if ((data == "tone A4")) {
       tone(9, 440, 1000);
       delay(1000);
 
@@ -65,7 +93,60 @@ void loop() {
       lcd16x2.print(data);
     }
 
-    if ((data == "light on")) {
+    if ((data == "tone A5")) {
+      tone(9, 880, 1000);
+      delay(1000);
+
+      // Display lcd
+      lcd16x2.clear();
+      lcd16x2.print("Last command :");
+      lcd16x2.setCursor(1 - 1, 2 - 1);
+      lcd16x2.print(data);
+    }
+
+    if ((data == "tone A6")) {
+      tone(9, 1760, 1000);
+      delay(1000);
+
+      // Display lcd
+      lcd16x2.clear();
+      lcd16x2.print("Last command :");
+      lcd16x2.setCursor(1 - 1, 2 - 1);
+      lcd16x2.print(data);
+    }
+
+    if ((data == "tone A7")) {
+      tone(9, 3520, 1000);
+      delay(1000);
+
+      // Display lcd
+      lcd16x2.clear();
+      lcd16x2.print("Last command :");
+      lcd16x2.setCursor(1 - 1, 2 - 1);
+      lcd16x2.print(data);
+    }
+
+    if ((data == "led red")) {
+      digitalWrite(6, true);
+
+      // Display lcd
+      lcd16x2.clear();
+      lcd16x2.print("Last command :");
+      lcd16x2.setCursor(1 - 1, 2 - 1);
+      lcd16x2.print(data);
+    }
+
+    if ((data == "led blue")) {
+      digitalWrite(5, true);
+
+      // Display lcd
+      lcd16x2.clear();
+      lcd16x2.print("Last command :");
+      lcd16x2.setCursor(1 - 1, 2 - 1);
+      lcd16x2.print(data);
+    }
+
+    if ((data == "led green")) {
       digitalWrite(7, true);
 
       // Display lcd
@@ -75,8 +156,10 @@ void loop() {
       lcd16x2.print(data);
     }
 
-    if ((data == "light off")) {
+    if ((data == "led off")) {
       digitalWrite(7, false);
+      digitalWrite(5, false);
+      digitalWrite(6, false);
 
       // Display lcd
       lcd16x2.clear();
@@ -85,4 +168,7 @@ void loop() {
       lcd16x2.print(data);
     }
   }
+  delay(100);
+  digitalWrite(10, false);
+  delay(100);
 }
