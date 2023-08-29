@@ -39,13 +39,19 @@ void loop() {
   digitalWrite(10, true);
 
   if ((digitalRead(12) == 0)) {
+    digitalWrite(7, false);
+    digitalWrite(5, false);
+    digitalWrite(6, false);
+
+    tone(9, 1760, 250);
+    delay(250);
+
+    // // Display lcd
     lcd16x2.clear();
     lcd16x2.print("Envision - HfA");
     lcd16x2.setCursor(1 - 1, 2 - 1);
     lcd16x2.print("V.0.1.2 BETA");
-    Serial.print("Log : clear\n");
-    tone(9, 1760, 500);
-    delay(500);
+    Serial.print("Log : reset\n");
   }
 
   // Check if there is any data available from the Bluetooth serial connection.
