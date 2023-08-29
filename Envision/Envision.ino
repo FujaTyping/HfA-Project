@@ -46,7 +46,7 @@ void loop() {
     tone(9, 1760, 250);
     delay(250);
 
-    // // Display lcd
+    // Display lcd
     lcd16x2.clear();
     lcd16x2.print("Envision - HfA");
     lcd16x2.setCursor(1 - 1, 2 - 1);
