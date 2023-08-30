@@ -37,7 +37,7 @@ void setup() {
 
   lcd16x2.print("Envision - HfA");
   lcd16x2.setCursor(1 - 1, 2 - 1);
-  lcd16x2.print("V.0.1.2 BETA");
+  lcd16x2.print("V.0.1.3 BETA");
   Serial.print("Envision IDE\n");
   tone(9, 1760, 500);
   delay(500);
@@ -64,7 +64,7 @@ void loop() {
       lcd16x2.clear();
       lcd16x2.print("Envision - HfA");
       lcd16x2.setCursor(1 - 1, 2 - 1);
-      lcd16x2.print("V.0.1.2 BETA");
+      lcd16x2.print("V.0.1.3 BETA");
       // / LOG / // Serial.print("Log : reset\n");
     }
   }
