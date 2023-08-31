@@ -78,6 +78,39 @@ byte xx[8] = {
   0xC3,
 };
 
+byte pacman[8] = {
+  0x3C,
+  0x7E,
+  0xFF,
+  0xFF,
+  0xEB,
+  0xE7,
+  0x46,
+  0x04,
+};
+
+byte house[8] = {
+  0x08,
+  0x0C,
+  0xFE,
+  0x9F,
+  0x9F,
+  0xFE,
+  0x0C,
+  0x08,
+};
+
+byte creaper[8] = {
+  0x00,
+  0x06,
+  0x76,
+  0x38,
+  0x38,
+  0x76,
+  0x06,
+  0x00,
+};
+
 float getDistance(int trig, int echo) {
   pinMode(trig, OUTPUT);
   digitalWrite(trig, LOW);
@@ -334,6 +367,36 @@ void loop() {
 
     if ((data == "Matrix X")) {
       printByte(xx);
+
+      // Display lcd
+      lcd16x2.clear();
+      lcd16x2.print("Last command :");
+      lcd16x2.setCursor(1 - 1, 2 - 1);
+      lcd16x2.print(data);
+    }
+
+    if ((data == "Matrix Pac-Man")) {
+      printByte(pacman);
+
+      // Display lcd
+      lcd16x2.clear();
+      lcd16x2.print("Last command :");
+      lcd16x2.setCursor(1 - 1, 2 - 1);
+      lcd16x2.print(data);
+    }
+
+    if ((data == "Matrix house")) {
+      printByte(house);
+
+      // Display lcd
+      lcd16x2.clear();
+      lcd16x2.print("Last command :");
+      lcd16x2.setCursor(1 - 1, 2 - 1);
+      lcd16x2.print(data);
+    }
+
+    if ((data == "Matrix creeper")) {
+      printByte(creaper);
 
       // Display lcd
       lcd16x2.clear();
