@@ -47,24 +47,35 @@ byte love[8] = {
 
 byte circle[8] = {
   0x3C,
-  0x42,
-  0x81,
-  0x81,
-  0x81,
-  0x81,
-  0x42,
+  0x7E,
+  0xE7,
+  0xC3,
+  0xC3,
+  0xE7,
+  0x7E,
   0x3C,
 };
 
 byte squaree[8] = {
   0xFF,
-  0x81,
-  0x81,
-  0x81,
-  0x81,
-  0x81,
-  0x81,
   0xFF,
+  0xC3,
+  0xC3,
+  0xC3,
+  0xC3,
+  0xFF,
+  0xFF,
+};
+
+byte xx[8] = {
+  0xC3,
+  0xE7,
+  0x7E,
+  0x3C,
+  0x3C,
+  0x7E,
+  0xE7,
+  0xC3,
 };
 
 float getDistance(int trig, int echo) {
@@ -99,7 +110,7 @@ void setup() {
 
   lcd16x2.print("Envision - HfA");
   lcd16x2.setCursor(1 - 1, 2 - 1);
-  lcd16x2.print("V.0.1.3 BETA");
+  lcd16x2.print("V.0.1.4 BETA");
   Serial.print("Envision IDE\n");
   tone(9, 1760, 500);
   delay(500);
@@ -127,7 +138,7 @@ void loop() {
       lcd16x2.clear();
       lcd16x2.print("Envision - HfA");
       lcd16x2.setCursor(1 - 1, 2 - 1);
-      lcd16x2.print("V.0.1.3 BETA");
+      lcd16x2.print("V.0.1.4 BETA");
       // / LOG / // Serial.print("Log : reset\n");
     }
   }
@@ -313,6 +324,16 @@ void loop() {
 
     if ((data == "Matrix Square")) {
       printByte(squaree);
+
+      // Display lcd
+      lcd16x2.clear();
+      lcd16x2.print("Last command :");
+      lcd16x2.setCursor(1 - 1, 2 - 1);
+      lcd16x2.print(data);
+    }
+
+    if ((data == "Matrix X")) {
+      printByte(xx);
 
       // Display lcd
       lcd16x2.clear();
