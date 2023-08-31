@@ -4,10 +4,68 @@
 #include <Arduino.h>
 #include <Wire.h>
 #include <LiquidCrystal_I2C.h>  // Install in libraries pages
+#include <LedControl.h>         // Install in libraries pages
+#include <binary.h>
 
 //MACROS are defined here
 bool isConnect = false;
+LedControl dotMatrixDisplay = LedControl(14, 16, 15, 1);
 LiquidCrystal_I2C lcd16x2(0x27, 16, 2);
+
+byte happy[8] = {
+  0x3C,
+  0x42,
+  0x95,
+  0xA1,
+  0xA1,
+  0x95,
+  0x42,
+  0x3C,
+};
+
+byte sad[8] = {
+  0x3C,
+  0x42,
+  0xA5,
+  0x91,
+  0x91,
+  0xA5,
+  0x42,
+  0x3C,
+};
+
+byte love[8] = {
+  0x0C,
+  0x1E,
+  0x3E,
+  0x7C,
+  0x7C,
+  0x3E,
+  0x1E,
+  0x0C,
+};
+
+byte circle[8] = {
+  0x3C,
+  0x42,
+  0x81,
+  0x81,
+  0x81,
+  0x81,
+  0x42,
+  0x3C,
+};
+
+byte squaree[8] = {
+  0xFF,
+  0x81,
+  0x81,
+  0x81,
+  0x81,
+  0x81,
+  0x81,
+  0xFF,
+};
 
 float getDistance(int trig, int echo) {
   pinMode(trig, OUTPUT);
@@ -35,6 +93,10 @@ void setup() {
   lcd16x2.begin(16, 2, 1);
   lcd16x2.backlight();
 
+  dotMatrixDisplay.shutdown(0, false);
+  dotMatrixDisplay.setIntensity(0, 5);
+  dotMatrixDisplay.clearDisplay(0);
+
   lcd16x2.print("Envision - HfA");
   lcd16x2.setCursor(1 - 1, 2 - 1);
   lcd16x2.print("V.0.1.3 BETA");
@@ -56,6 +118,7 @@ void loop() {
       digitalWrite(7, false);
       digitalWrite(5, false);
       digitalWrite(6, false);
+      dotMatrixDisplay.clearDisplay(0);
 
       tone(9, 1760, 250);
       delay(250);
@@ -207,8 +270,76 @@ void loop() {
       lcd16x2.setCursor(1 - 1, 2 - 1);
       lcd16x2.print(data);
     }
+
+    if ((data == "Matrix happy")) {
+      printByte(happy);
+
+      // Display lcd
+      lcd16x2.clear();
+      lcd16x2.print("Last command :");
+      lcd16x2.setCursor(1 - 1, 2 - 1);
+      lcd16x2.print(data);
+    }
+
+    if ((data == "Matrix sad")) {
+      printByte(sad);
+
+      // Display lcd
+      lcd16x2.clear();
+      lcd16x2.print("Last command :");
+      lcd16x2.setCursor(1 - 1, 2 - 1);
+      lcd16x2.print(data);
+    }
+
+    if ((data == "Matrix love")) {
+      printByte(love);
+
+      // Display lcd
+      lcd16x2.clear();
+      lcd16x2.print("Last command :");
+      lcd16x2.setCursor(1 - 1, 2 - 1);
+      lcd16x2.print(data);
+    }
+
+    if ((data == "Matrix Circle")) {
+      printByte(circle);
+
+      // Display lcd
+      lcd16x2.clear();
+      lcd16x2.print("Last command :");
+      lcd16x2.setCursor(1 - 1, 2 - 1);
+      lcd16x2.print(data);
+    }
+
+    if ((data == "Matrix Square")) {
+      printByte(squaree);
+
+      // Display lcd
+      lcd16x2.clear();
+      lcd16x2.print("Last command :");
+      lcd16x2.setCursor(1 - 1, 2 - 1);
+      lcd16x2.print(data);
+    }
+
+    if ((data == "Matrix off")) {
+      dotMatrixDisplay.clearDisplay(0);
+
+      // Display lcd
+      lcd16x2.clear();
+      lcd16x2.print("Last command :");
+      lcd16x2.setCursor(1 - 1, 2 - 1);
+      lcd16x2.print(data);
+    }
   }
   delay(250);
   digitalWrite(10, false);
   delay(250);
+}
+
+void printByte(byte character[]) {
+
+  int i = 0;
+  for (i = 0; i < 8; i++) {
+    dotMatrixDisplay.setRow(0, i, character[i]);
+  }
 }
