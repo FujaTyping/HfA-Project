@@ -138,7 +138,7 @@ void setup() {
   lcd16x2.backlight();
 
   dotMatrixDisplay.shutdown(0, false);
-  dotMatrixDisplay.setIntensity(0, 5);
+  dotMatrixDisplay.setIntensity(0, 4);
   dotMatrixDisplay.clearDisplay(0);
 
   lcd16x2.print("Envision - HfA");
