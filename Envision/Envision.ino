@@ -207,8 +207,8 @@ void loop() {
       lcd16x2.print("disconnected");
     }
 
-    if ((data == "tone A2")) {
-      tone(9, 110, 1000);
+    if ((data == "tone C2")) {
+      tone(9, 65, 1000);
       delay(1000);
 
       // Display lcd
@@ -218,8 +218,8 @@ void loop() {
       lcd16x2.print(data);
     }
 
-    if ((data == "tone A3")) {
-      tone(9, 220, 1000);
+    if ((data == "tone D3")) {
+      tone(9, 147, 1000);
       delay(1000);
 
       // Display lcd
@@ -229,8 +229,8 @@ void loop() {
       lcd16x2.print(data);
     }
 
-    if ((data == "tone A4")) {
-      tone(9, 440, 1000);
+    if ((data == "tone E4")) {
+      tone(9, 330, 1000);
       delay(1000);
 
       // Display lcd
@@ -240,8 +240,8 @@ void loop() {
       lcd16x2.print(data);
     }
 
-    if ((data == "tone A5")) {
-      tone(9, 880, 1000);
+    if ((data == "tone F5")) {
+      tone(9, 698, 1000);
       delay(1000);
 
       // Display lcd
@@ -251,8 +251,8 @@ void loop() {
       lcd16x2.print(data);
     }
 
-    if ((data == "tone A6")) {
-      tone(9, 1760, 1000);
+    if ((data == "tone G6")) {
+      tone(9, 1568, 1000);
       delay(1000);
 
       // Display lcd
@@ -264,6 +264,17 @@ void loop() {
 
     if ((data == "tone A7")) {
       tone(9, 3520, 1000);
+      delay(1000);
+
+      // Display lcd
+      lcd16x2.clear();
+      lcd16x2.print("Last command :");
+      lcd16x2.setCursor(1 - 1, 2 - 1);
+      lcd16x2.print(data);
+    }
+
+    if ((data == "tone C8")) {
+      tone(9,4186,1000);
       delay(1000);
 
       // Display lcd
