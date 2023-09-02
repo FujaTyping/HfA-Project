@@ -274,7 +274,7 @@ void loop() {
     }
 
     if ((data == "tone C8")) {
-      tone(9,4186,1000);
+      tone(9, 4186, 1000);
       delay(1000);
 
       // Display lcd
