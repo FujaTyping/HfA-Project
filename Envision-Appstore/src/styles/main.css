@@ -84,7 +84,7 @@ main {
 
 .subheading {
     font-family: Prompt;
-    font-size: 1.75rem;
+    font-size: 1.6rem;
     font-weight: 300;
     margin-bottom: 30px;
 }
@@ -96,7 +96,6 @@ main {
 }
 
 .badge {
-    margin-bottom: 20px;
     height: 50px;
 }
 .badge:hover {
@@ -104,6 +103,7 @@ main {
 }
 
 .authors {
+    margin-top: 20px;
     font-weight: 300;
 }
 
@@ -143,6 +143,12 @@ footer {
     }
     .text-container {
         width: 100%;
+    }
+    .heading {
+        font-size: 3.1rem;
+    }
+    .subheading {
+        font-size: 1.2rem;
     }
     .footer-image {
         top: 5px;
