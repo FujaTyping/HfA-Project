@@ -1,0 +1,83 @@
+---
+import "../styles/main.css";
+
+const heading = "SmartEnvision";
+const subheading =
+    "ควบคุมระบบบ้านอัจฉริยะด้วย SmartEnvision บ้านอัจฉริยะที่สะดวก ปลอดภัย สำหรับทุกคน รวมถึงผู้สูงอายุและผู้พิการ";
+const appIcon = "/images/BetterEnvision.png";
+const appScreenshot = "/images/Mockup.png";
+const footerImage = "/images/Bottom-Banners.png";
+const badges = [
+    {
+        link: "",
+        image: "/images/Github-Download.png",
+    },
+    {
+        link: "",
+        image: "/images/Android-Download.png",
+    },
+];
+const authors = [
+    {
+        name: "นาย สิรภพ สุขชู",
+        url: "https://siraphop.me",
+    },
+];
+const pageTitle = "SmartEnvision";
+const favicon = "/images/BetterEnvision.png";
+---
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <link rel="icon" type="image/png" href={favicon} />
+        <meta name="viewport" content="width=device-width" />
+        <meta name="generator" content={Astro.generator} />
+        <title>{pageTitle}</title>
+    </head>
+    <body>
+        <div class="container">
+            <main>
+                <div class="text-container">
+                    <img src={appIcon} class="app-icon" />
+                    <h1 class="heading">{heading}</h1>
+                    <h2 class="subheading">{subheading}</h2>
+                    <div class="badge-container">
+                        {
+                            badges.map((badge) => (
+                                <div>
+                                    <a href={badge.link} target="_blank">
+                                        <img src={badge.image} class="badge" />
+                                    </a>
+                                </div>
+                            ))
+                        }
+                    </div>
+                    <p class="authors">
+                        สร้างด้วย &#x2665; โดย
+                        {
+                            authors.map((author, index) => (
+                                <span>
+                                    {index > 0
+                                        ? index === authors.length - 1
+                                            ? " and "
+                                            : ", "
+                                        : ""}
+                                    <a href={author.url} target="_blank">
+                                        {author.name}
+                                    </a>
+                                </span>
+                            ))
+                        }
+                    </p>
+                </div>
+                <div>
+                    <img src={appScreenshot} class="app-screenshot" />
+                </div>
+            </main>
+            <footer>
+                <img src={footerImage} class="footer-image" />
+            </footer>
+        </div>
+    </body>
+</html>
