@@ -9,7 +9,7 @@ const appScreenshot = "/images/Mockup.png";
 const footerImage = "/images/Bottom-Banners.png";
 const badges = [
     {
-        link: "",
+        link: "https://github.com/FujaTyping/HfA-Project/releases",
         image: "/images/Github-Download.png",
     },
     {
@@ -50,7 +50,7 @@ const favicon = "/images/BetterEnvision.png";
                         {
                             badges.map((badge) => (
                                 <div>
-                                    <a href={badge.link} target="_blank">
+                                    <a href={badge.link} target="_self">
                                         <img src={badge.image} class="badge" />
                                     </a>
                                 </div>
@@ -67,12 +67,16 @@ const favicon = "/images/BetterEnvision.png";
                                             ? " and "
                                             : ", "
                                         : ""}
-                                    <a href={author.url} target="_blank">
+                                    <a href={author.url} target="_self">
                                         {author.name}
                                     </a>
                                 </span>
                             ))
                         }
+                        <br />ดูโปรเจค Home for All บน <a
+                            href="https://github.com/FujaTyping/HfA-Project"
+                            target="_self">Github</a
+                        >
                     </p>
                 </div>
                 <div>
