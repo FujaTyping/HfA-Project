@@ -47,5 +47,5 @@ void loop() {
       Serial.println("RGB Blue OFF");
     }
   }
-  delay(20);
+  delay(50);
 }

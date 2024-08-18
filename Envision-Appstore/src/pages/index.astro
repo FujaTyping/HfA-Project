@@ -5,7 +5,11 @@ const heading = "SmartEnvision";
 const subheading =
     "ควบคุมระบบบ้านอัจฉริยะด้วย SmartEnvision บ้านอัจฉริยะที่สะดวก ปลอดภัย สำหรับทุกคน รวมถึงผู้สูงอายุและผู้พิการ";
 const appIcon = "/images/BetterEnvision.png";
-const appScreenshot = "/images/PreMockup1.png";
+const appScreenshot = [
+    "/images/PreMockup1.png",
+    "/images/PreMockup2.png",
+    "/images/PreMockup3.png",
+];
 const footerImage = "/images/Bottom-Banners.png";
 const badges = [
     {
@@ -44,7 +48,7 @@ const favicon = "/images/BetterEnvision.png";
             <main>
                 <div class="text-container">
                     <img src={appIcon} class="app-icon" />
-                    <h1 class="heading">{heading}</h1>
+                    <h1 class="heading tracking-in-expand">{heading}</h1>
                     <h2 class="subheading">{subheading}</h2>
                     <div class="badge-container">
                         {
@@ -80,7 +84,17 @@ const favicon = "/images/BetterEnvision.png";
                     </p>
                 </div>
                 <div>
-                    <img src={appScreenshot} class="app-screenshot" />
+                    {
+                        appScreenshot.map((image, index) => (
+                            <img
+                                src={image}
+                                style={{
+                                    display: index > 0 ? "none" : "block",
+                                }}
+                                class="app-screenshot"
+                            />
+                        ))
+                    }
                 </div>
             </main>
             <footer>
@@ -88,4 +102,8 @@ const favicon = "/images/BetterEnvision.png";
             </footer>
         </div>
     </body>
+    <script>
+        import w3 from "../script/w3.js";
+        w3.slideshow(".app-screenshot", 5000);
+    </script>
 </html>

@@ -120,6 +120,7 @@ main {
 
 .app-screenshot {
     width: 220px;
+    margin: auto;
 }
 
 footer {
@@ -138,6 +139,10 @@ footer {
     top: 30px;
 }
 
+.tracking-in-expand {
+    animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.61, 0.355, 1) both;
+}
+
 @media (max-width: 768px) {
     main {
         flex-direction: column;
@@ -154,5 +159,18 @@ footer {
     }
     .footer-image {
         top: 5px;
+    }
+}
+
+@keyframes tracking-in-expand {
+    0% {
+        letter-spacing: -0.5em;
+        opacity: 0;
+    }
+    40% {
+        opacity: 0.6;
+    }
+    100% {
+        opacity: 1;
     }
 }
