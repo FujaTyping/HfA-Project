@@ -19,6 +19,7 @@ void setup() {
 }
 
 void loop() {
+  SerialBT.println("DHT " + String(randint()) + " " + String(randint()));
   if (SerialBT.available() > 0) {
     CMD = SerialBT.readStringUntil('\n');
     Serial.println(CMD);
@@ -47,5 +48,9 @@ void loop() {
       Serial.println("RGB Blue OFF");
     }
   }
-  delay(50);
+  delay(800);
+}
+
+int randint() {
+  return random(0, 50);
 }
