@@ -1,7 +1,13 @@
+// Require Libray :
+// Adafruit Unified Sensor
+// DHT sensor library
+
 #include "BluetoothSerial.h"
+#include "DHT.h"
 
 String device_name = "SmartHomevision";
 String CMD = "";
+String SerialByte = "";
 
 #if !defined(CONFIG_BT_ENABLED) || !defined(CONFIG_BLUEDROID_ENABLED)
 #error Bluetooth is not enabled! Please run `make menuconfig` to and enable it
@@ -13,13 +19,25 @@ String CMD = "";
 
 BluetoothSerial SerialBT;
 
+#define DHTPIN 16
+#define DHTTYPE DHT11
+
+DHT dht(DHTPIN, DHTTYPE);
+
 void setup() {
   Serial.begin(115200);
   SerialBT.begin(device_name);
 }
 
 void loop() {
-  SerialBT.println("DHT " + String(randint()) + " " + String(randint()));
+  SerialByte = "";
+  float Hum = dht.readHumidity();
+  float Temp = dht.readTemperature();
+  if (isnan(Hum) || isnan(Temp)) {
+    SerialByte += "DHT 0 0";
+  } else {
+    SerialByte += "DHT " + String(Hum) + " " + String(Temp);
+  }
   if (SerialBT.available() > 0) {
     CMD = SerialBT.readStringUntil('\n');
     Serial.println(CMD);
@@ -48,9 +66,10 @@ void loop() {
       Serial.println("RGB Blue OFF");
     }
   }
-  delay(800);
+  SerialBT.println(SerialByte);
+  delay(1000);
 }
 
 int randint() {
-  return random(0, 50);
+  return random(0, 100);
 }
