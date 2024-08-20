@@ -25,6 +25,10 @@ BluetoothSerial SerialBT;
 DHT dht(DHTPIN, DHTTYPE);
 
 void setup() {
+  pinMode(26, OUTPUT);
+  pinMode(18, OUTPUT);
+  pinMode(19, OUTPUT);
+  pinMode(23, OUTPUT);
   Serial.begin(115200);
   SerialBT.begin(device_name);
 }
@@ -42,28 +46,28 @@ void loop() {
     CMD = SerialBT.readStringUntil('\n');
     Serial.println(CMD);
     if(CMD == "LC") {
-      Serial.println("Light OFF");
+      digitalWrite(26, false);
     }
     if(CMD == "LO") {
-      Serial.println("Light ON");
+      digitalWrite(26, true);
     }
     if(CMD == "LRO") {
-      Serial.println("RGB Red ON");
+      digitalWrite(18, true);
     }
     if(CMD == "LRF") {
-      Serial.println("RGB Red OFF");
+      digitalWrite(18, false);
     }
     if(CMD == "LGO") {
-      Serial.println("RGB Green ON");
+      digitalWrite(19, true);
     }
     if(CMD == "LGF") {
-      Serial.println("RGB Green OFF");
+      digitalWrite(19, false);
     }
     if(CMD == "LBO") {
-      Serial.println("RGB Blue ON");
+      digitalWrite(23, true);
     }
     if(CMD == "LBF") {
-      Serial.println("RGB Blue OFF");
+      digitalWrite(23, false);
     }
   }
   SerialBT.println(SerialByte);
