@@ -5,7 +5,7 @@
 #include "BluetoothSerial.h"
 #include "DHT.h"
 
-String device_name = "SmartHomevision";
+String DeviceName = "SmartHomevision";
 String CMD = "";
 String SerialByte = "";
 
@@ -30,7 +30,7 @@ void setup() {
   pinMode(19, OUTPUT);
   pinMode(23, OUTPUT);
   Serial.begin(115200);
-  SerialBT.begin(device_name);
+  SerialBT.begin(DeviceName);
 }
 
 void loop() {
