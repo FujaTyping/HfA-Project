@@ -2,8 +2,8 @@ import Swal from "sweetalert2";
 
 function NoticeIOS() {
   Swal.fire({
-    title: "เตือน !",
-    text: "โปรเจค Home for All (SmartEnvision) อยู่ระหว่างการพัฒนา ดังนั้น แอปพลิเคชันอาจมีบัคหรือข้อผิดพลาดในระหว่างการใช้งาน ขณะนี้กำลังพยายามปรับปรุงและแก้ไขเพื่อมอบประสบการณ์ที่ดีที่สุด",
+    title: "ผู้ใช้ Apple ทุกท่าน !",
+    text: "ขอแจ้งให้ทราบว่าโปรเจค Home for All (SmartEnvision) ขณะนี้ยังไม่รองรับการใช้งานในระบบปฏิบัติการ iOS อย่างเป็นทางการ ดังนั้น หากท่านใช้งานผ่าน Android Emulator บนเครื่อง Apple จะไม่สามารถใช้งานฟีเจอร์บางอย่างได้อย่างเต็มประสิทธิภาพ",
     confirmButtonText: "เข้าใจแล้ว",
     color: "#ffffff",
     background: "#222222",

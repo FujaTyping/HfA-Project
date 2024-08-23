@@ -65,6 +65,10 @@ main {
     gap: 80px;
 }
 
+.swal2-popup {
+    font-family: Prompt;
+}
+
 .text-container {
     width: 60%;
 }
