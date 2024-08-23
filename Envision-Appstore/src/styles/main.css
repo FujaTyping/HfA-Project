@@ -69,6 +69,10 @@ main {
     font-family: Prompt;
 }
 
+.swal2-confirm {
+    font-family: Prompt;
+}
+
 .text-container {
     width: 60%;
 }
