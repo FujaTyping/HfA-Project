@@ -60,6 +60,14 @@ const favicon = "/images/BetterEnvision.png";
                                 </div>
                             ))
                         }
+                        <div>
+                            <a id="AppleInstruction" target="_self">
+                                <img
+                                    src="/images/IOS-Instruction.png"
+                                    class="badge"
+                                />
+                            </a>
+                        </div>
                     </div>
                     <p class="authors">
                         ดูเวอร์ชั่นของ SmartEnvision ทั้งหมดได้ที่ <a
@@ -103,7 +111,11 @@ const favicon = "/images/BetterEnvision.png";
         </div>
     </body>
     <script>
+        import { NoticeIOS } from "../script/function";
         import w3 from "../script/w3.js";
         w3.slideshow(".app-screenshot", 5000);
+        document
+            .getElementById("AppleInstruction")
+            .addEventListener("click", NoticeIOS);
     </script>
 </html>
