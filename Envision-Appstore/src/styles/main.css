@@ -67,6 +67,7 @@ main {
 
 .swal2-popup {
     font-family: Prompt;
+    border-radius: 20px;
 }
 
 .swal2-confirm {
