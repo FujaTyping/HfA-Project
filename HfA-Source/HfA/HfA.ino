@@ -4,11 +4,13 @@
 // EspSoftwareSerial
 // DFRobotDFPlayerMini
 
-#include "BluetoothSerial.h"
 #include "SoftwareSerial.h"
+#include "BluetoothSerial.h"
 #include "DHT.h"
 #include "DFRobotDFPlayerMini.h"
 
+static const uint8_t DFTXPIN = 26;
+static const uint8_t DFRXPIN = 27;
 String DeviceName = "SmartHomevision";
 String CMD = "";
 String SerialByte = "";
@@ -22,16 +24,13 @@ int DFVolume = 50;
 #error Serial Port Profile for Bluetooth is not available or not enabled. It is only available for the ESP32 chip.
 #endif
 
-BluetoothSerial SerialBT;
-
 #define DHTPIN 16
 #define DHTTYPE DHT11
-#define DFTXPIN 27
-#define DFRXPIN 25
 
 SoftwareSerial softwareSerial(DFRXPIN, DFTXPIN);
+DFRobotDFPlayerMini player;
 DHT dht(DHTPIN, DHTTYPE);
-DFRobotDFPlayerMini DFPlayer;
+BluetoothSerial SerialBT;
 
 void setup() {
   pinMode(26, OUTPUT);
@@ -39,11 +38,13 @@ void setup() {
   pinMode(19, OUTPUT);
   pinMode(23, OUTPUT);
   Serial.begin(115200);
-  softwareSerial.begin(9600);
+  softwareSerial.begin(115200);
   SerialBT.begin(DeviceName);
-  if (DFPlayer.begin(softwareSerial)) {
+  if (player.begin(softwareSerial)) {
     Serial.println("[LOG] : DFPlayer connected");
-    DFPlayer.volume(DFVolume);
+    player.volume(DFVolume);
+    //player.play(1);
+    //player.playFolder(1, 1);
   } else {
     Serial.println("[LOG] : Can't connect to DFPlayer");
   }
@@ -93,34 +94,28 @@ void Commands(String CMD) {
     digitalWrite(23, false);
   }
   if(CMD == "DFPLofi") {
-    DFPlayer.play(5);
+    player.play(5);
   }
   if(CMD == "DFPRock") {
-    DFPlayer.play(3);
+    player.play(3);
   }
   if(CMD == "DFPClassic") {
-    DFPlayer.play(4);
+    player.play(4);
   }
   if(CMD == "DFPOrchestra") {
-    DFPlayer.play(2);
+    player.play(2);
   }
   if(CMD == "DFPPop") {
-    DFPlayer.play(1);
+    player.play(1);
   }
   if(CMD == "DFVU") {
-    if(DFVolume <= 100) {
-      DFVolume += 10;
-      DFPlayer.volume(DFVolume);
-    }
+    player.volumeUp();
   }
   if(CMD == "DFVD") {
-    if(DFVolume >= 0) {
-      DFVolume -= 10;
-      DFPlayer.volume(DFVolume);
-    }
+    player.volumeDown();
   }
   if(CMD == "DFPU") {
-    DFPlayer.pause();
+    player.pause();
   }
 }
 
