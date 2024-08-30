@@ -1,0 +1,24 @@
+{
+  "name": "medivise-ai",
+  "version": "0.0.1",
+  "description": "Smart AI healthcare assistant offering personalized medical advice and support",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./index.js",
+    "build": "npm install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FujaTyping/HfA-Project.git"
+  },
+  "author": "FujaTyping",
+  "bugs": {
+    "url": "https://github.com/FujaTyping/HfA-Project/issues"
+  },
+  "homepage": "https://github.com/FujaTyping/HfA-Project#readme",
+  "dependencies": {
+    "axios": "^1.7.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2"
+  }
+}
