@@ -1,3 +1,4 @@
 /SmartEnvision/*
 !/SmartEnvision/assets
 !/SmartEnvision/export
+!/SmartEnvision/AndroidManifest.xml
