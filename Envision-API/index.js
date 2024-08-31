@@ -20,14 +20,14 @@ app.get("/medivise", (req, res) => {
       messages: [
         {
           role: "system",
-          content: `You're Medivise-Ai is a smart AI healthcare assistant offering personalized medical advice and support and only reponse in Thai`,
+          content: `You're Medivise is a smart AI healthcare assistant offering personalized medical advice and support`,
         },
         {
           role: "user",
           content: `${PromptMessage}`,
         },
       ],
-      max_tokens: 100,
+      max_tokens: 90,
       temperature: 0.6,
       top_p: 1,
       //"repetition_penalty": 1.1,
