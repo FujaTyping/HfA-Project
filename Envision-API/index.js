@@ -7,7 +7,11 @@ const app = express();
 const port = config.port;
 const key = process.env.key;
 
-app.get("/Medivise", (req, res) => {
+app.get("/version", (req, res) => {
+  res.send("0.0.1");
+});
+
+app.get("/medivise", (req, res) => {
   const PromptMessage = req.query.prompt;
   const AccessPermission = req.query.source;
   if (PromptMessage && AccessPermission == "me.siraphop.SmartEnvision") {
@@ -47,21 +51,17 @@ app.get("/Medivise", (req, res) => {
         res.send(MediviseResponse);
       })
       .catch(async (error) => {
-        res.send("Can't comunicate with Medivise-Ai");
+        res.send("Can't comunicate with Medivise");
       });
   } else {
-    res
-      .status(400)
-      .send(
-        "Please provide a query & Source of request (Can be use in SmartEnvision only)",
-      );
+    res.status(400).send("Please provide a query - 400");
   }
 });
 
 app.use((req, res, next) => {
-  res.status(404).send("No API that you looking for");
+  res.status(404).send("There is no API here - 404");
 });
 
 app.listen(port, () => {
-  console.log(`Medivise API is running on port : ${port}`);
+  console.log(`Envision API is running on port : ${port}`);
 });

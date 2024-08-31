@@ -1,7 +1,7 @@
 {
-  "name": "medivise-ai",
+  "name": "envision-api",
   "version": "0.0.1",
-  "description": "Smart AI healthcare assistant offering personalized medical advice and support",
+  "description": "API for HfA-Project (SmartEnvision)",
   "main": "index.js",
   "scripts": {
     "start": "node ./index.js",
