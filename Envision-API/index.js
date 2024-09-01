@@ -3,12 +3,13 @@ const axios = require("axios");
 require("dotenv").config();
 
 const config = require("./config.json");
+const { version } = require("./package.json");
 const app = express();
 const port = config.port;
 const key = process.env.key;
 
 app.get("/version", (req, res) => {
-  res.send("0.0.1");
+  res.send(version);
 });
 
 app.get("/medivise", (req, res) => {
