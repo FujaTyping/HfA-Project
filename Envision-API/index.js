@@ -52,7 +52,7 @@ app.get("/medivise", (req, res) => {
         res.send(MediviseResponse);
       })
       .catch(async (error) => {
-        res.send("Can't comunicate with Medivise");
+        res.send(`Can't comunicate with Medivise (${error})`);
       });
   } else {
     res.status(400).send("Please provide a query - 400");
