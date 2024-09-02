@@ -1,6 +1,7 @@
 {
   "name": "envision-api",
   "version": "0.1",
+  "versioncode": "Alpha",
   "description": "API for HfA-Project (SmartEnvision)",
   "main": "index.js",
   "scripts": {
@@ -17,6 +18,7 @@
   },
   "homepage": "https://github.com/FujaTyping/HfA-Project#readme",
   "dependencies": {
+    "@google/generative-ai": "^0.17.1",
     "axios": "^1.7.5",
     "dotenv": "^16.4.5",
     "express": "^4.19.2"
