@@ -1,7 +1,7 @@
 {
   "name": "envision-api",
-  "version": "0.1",
-  "versioncode": "Alpha",
+  "version": "0.2",
+  "versioncode": "Beta",
   "description": "API for HfA-Project (SmartEnvision)",
   "main": "index.js",
   "scripts": {

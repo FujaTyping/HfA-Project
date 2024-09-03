@@ -20,6 +20,8 @@ void setup() {
   pinMode(18, OUTPUT);
   pinMode(19, OUTPUT);
   pinMode(23, OUTPUT);
+  pinMode(34, OUTPUT);
+  pinMode(35, OUTPUT);
   Serial.begin(115200);
   SerialBT.begin(DeviceName);
   Serial.println("[LOG] : Initialize complete");
@@ -68,6 +70,18 @@ void Commands(String CMD) {
   }
   if(CMD == "LBF") {
     digitalWrite(23, false);
+  }
+  if(CMD == "IO34F") {
+    digitalWrite(34, false);
+  }
+  if(CMD == "IO34T") {
+    digitalWrite(34, true);
+  }
+  if(CMD == "IO35F") {
+    digitalWrite(35, false);
+  }
+  if(CMD == "IO35T") {
+    digitalWrite(35, true);
   }
 }
 
