@@ -19,6 +19,8 @@ const GeminiModel = GeminiAI.getGenerativeModel({
   },
 });
 
+app.use("/favicon.ico", express.static("assets/BetterEnvision.png"));
+
 app.get("/version", (req, res) => {
   res.send(`${version} ${versioncode}`);
 });
