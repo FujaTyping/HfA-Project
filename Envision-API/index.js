@@ -14,8 +14,8 @@ const GeminiAI = new GoogleGenerativeAI(minikey);
 const GeminiModel = GeminiAI.getGenerativeModel({
   model: "gemini-1.5-flash",
   generationConfig: {
-    maxOutputTokens: 80,
-    temperature: 0.8,
+    maxOutputTokens: 70,
+    temperature: 0.7,
   },
 });
 
