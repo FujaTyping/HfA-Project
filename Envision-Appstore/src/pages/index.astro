@@ -30,6 +30,10 @@ const authors = [
 ];
 const pageTitle = "SmartEnvision";
 const favicon = "/images/BetterEnvision.png";
+const badgegen = [
+    "https://badgen.net/github/release/FujaTyping/HfA-Project?color=black",
+    "https://badgen.net/github/commits/FujaTyping/HfA-Project?color=black",
+];
 ---
 
 <html lang="en">
@@ -37,6 +41,11 @@ const favicon = "/images/BetterEnvision.png";
         <meta charset="utf-8" />
         <link rel="icon" type="image/png" href={favicon} />
         <meta name="viewport" content="width=device-width" />
+        <meta name="author" content="Siraphop Sukchu" />
+        <meta
+            name="keywords"
+            content="Envision,envision,SmartEnvision,smartenvision,ESP32,esp32,IoT,iot"
+        />
         <meta
             name="description"
             content="SmartEnvision - ควบคุมระบบบ้านอัจฉริยะด้วย SmartEnvision บ้านอัจฉริยะที่สะดวก ปลอดภัย สำหรับทุกคน รวมถึงผู้สูงอายุและผู้พิการ"
@@ -91,6 +100,13 @@ const favicon = "/images/BetterEnvision.png";
                             ))
                         }
                     </p>
+                    <div style="margin-top: 4px;">
+                        {
+                            badgegen.map((image, index) => (
+                                <img style="margin-right: 6px;" src={image} />
+                            ))
+                        }
+                    </div>
                 </div>
                 <div>
                     {
