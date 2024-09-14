@@ -23,6 +23,19 @@ html {
     overflow-x: hidden;
 }
 
+.Whattitle {
+    margin-top: 40px;
+    font-family: Nuetrina;
+    font-size: 3.5rem;
+}
+
+.ccard {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    gap: 30px;
+    margin-top: 15px;
+}
+
 body {
     -webkit-font-smoothing: antialiased;
     color: var(--secondary);
@@ -63,6 +76,24 @@ main {
     justify-content: center;
     align-items: center;
     gap: 80px;
+}
+
+.ccard-item {
+    font-family: Prompt;
+    background-color: #313131;
+    padding: 25px;
+    border-radius: 20px;
+    max-width: 350px;
+}
+
+.ccard-item h3 {
+    font-family: Nuetrina;
+    font-size: 25px;
+}
+
+.ccard-item img {
+    max-width: 55px;
+    margin-bottom: 5px;
 }
 
 .swal2-popup {
@@ -165,6 +196,9 @@ footer {
     main {
         flex-direction: column;
         padding: 40px;
+    }
+    .ccard {
+        grid-template-columns: repeat(1, auto);
     }
     .text-container {
         width: 100%;

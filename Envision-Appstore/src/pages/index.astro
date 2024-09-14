@@ -34,6 +34,18 @@ const badgegen = [
     "https://badgen.net/github/release/FujaTyping/HfA-Project?color=black",
     "https://badgen.net/github/commits/FujaTyping/HfA-Project?color=black",
 ];
+const card = [
+    {
+        icon: "/images/AiFeature.webp",
+        title: "AI-Powered Health",
+        dest: "MediVise ให้คําแนะนําเกี่ยวกับปัญหาทั่วไป ตรวจอาการ และแนะนําวิธีแก้ไขหรือเมื่อใดควรขอความช่วยเหลือ",
+    },
+    {
+        icon: "/images/IoTFeature.webp",
+        title: "IoT Smart Home Control",
+        dest: "จัดการอุปกรณ์สมาร์ทโฮม เช่น แสงสว่างและอุณหภูมิตามความต้องการด้านสุขภาพ",
+    },
+];
 ---
 
 <html lang="en">
@@ -126,6 +138,18 @@ const badgegen = [
                     }
                 </div>
             </main>
+            <h1 class="Whattitle">Feature</h1>
+            <div class="ccard">
+                {
+                    card.map((card, index) => (
+                        <div class="ccard-item">
+                            <img src={card.icon} />
+                            <h3>{card.title}</h3>
+                            <p>{card.dest}</p>
+                        </div>
+                    ))
+                }
+            </div>
             <footer>
                 <img src={footerImage} class="footer-image" />
             </footer>
