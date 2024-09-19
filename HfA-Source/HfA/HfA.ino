@@ -19,7 +19,7 @@ void setup() {
   pinMode(26, OUTPUT);
   pinMode(18, OUTPUT);
   pinMode(19, OUTPUT);
-  pinMode(23, OUTPUT);
+  pinMode(21, OUTPUT);
   pinMode(34, OUTPUT);
   pinMode(35, OUTPUT);
   Serial.begin(115200);
@@ -66,10 +66,10 @@ void Commands(String CMD) {
     digitalWrite(19, false);
   }
   if(CMD == "LBO") {
-    digitalWrite(23, true);
+    digitalWrite(21, true);
   }
   if(CMD == "LBF") {
-    digitalWrite(23, false);
+    digitalWrite(21, false);
   }
   if(CMD == "IO34F") {
     digitalWrite(34, false);
